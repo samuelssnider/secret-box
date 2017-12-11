@@ -19,10 +19,9 @@ app.get('/api/secrets/:id', function(request, response) {
 
   response.json({ id, message })
 })
-  
 
 if(!module.parent){
-  app.listen('port', function() {
+  app.listen(app.get('port'), function() {
     console.log(`${app.locals.title} is running on port ${app.get('port')}`)
   })
 }

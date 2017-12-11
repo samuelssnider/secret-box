@@ -47,6 +47,21 @@ describe('Server', function() {
     
   });
   
+  describe('GET /api/secrets/:id', function() {
+    beforeEach(function() {
+      app.locals.secrets = {
+        wowowow: 'I am a banana'
+      }
+    })
+    it('should return a 404 if the resource is not found', function(done) {
+      this.request.get('/api/secrets/bahaha', function(error, response) {
+        if (error) { done(error) }
+        assert.equal(response.statusCode, 404)
+        done()
+      })
+    })
+  })
+  
   
   
 });
