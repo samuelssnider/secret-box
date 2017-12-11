@@ -70,7 +70,19 @@ describe('Server', function() {
         done();
       });
     });
-
+  })
+  
+  describe('POST /api/secrets', function() {
+    beforeEach(function() {
+      app.locals.secrets = {}
+    })
+    it('should not return 404', function(done) {
+      this.request.post('/api/secrets', function(error, response) {
+        if (error) { done(error) }
+        assert.notEqual(response.statusCode, 404)
+        done()
+      })
+    })
   })
   
   
