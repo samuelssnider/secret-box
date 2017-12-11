@@ -88,11 +88,11 @@ describe('Server', function() {
       this.request.post('/api/secrets', {form: newSecret}, function(error) {
         if(error) {done:(error)}
       
-      var secretCount  = Object.keys(app.locals.secrets).length;
-      
-      assert.equal(secretCount, 1, `Expected 1 secret, found ${secretCount}`);
-      
-      done()
+        var secretCount  = Object.keys(app.locals.secrets).length;
+        
+        assert.equal(secretCount, 1, `Expected 1 secret, found ${secretCount}`);
+        
+        done()
       })
     })
   })
