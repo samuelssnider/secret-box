@@ -37,8 +37,10 @@ describe('Server', function() {
 
       this.request.get('/', function(error, response) {
         if(error){ done(error) }
+        
         assert(response.body.includes(title),
                `"${response.body}" does not include "${title}".`);
+               
         done();
       });
     });
